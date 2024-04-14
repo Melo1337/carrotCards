@@ -1,2 +1,2 @@
-# carrotCards
+# ParrotCards
 Projeto do Parrot Cards
