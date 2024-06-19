@@ -35,7 +35,7 @@ function renderizarBaralho() {
     baralho.sort(comparador)
 
     for (let i = 0; i < numberCards; i++) {
-        document.querySelector(".tableCards").innerHTML += `<div class="card ${[baralho[i]]}" id="" onclick="virar(this)">
+        document.querySelector(".tableCards").innerHTML += `<div class="card ${[baralho[i]]}" onclick="virar(this)">
                                                                 <div class="front"><img src="./src/img/front.png"></div>
                                                                 <div class="back"><img src="/src/img/${backgroundGifs[baralho[i]]}.gif"></div>
                                                             </div>`;
@@ -68,6 +68,8 @@ function verificarCartas() {
             segundaCarta = '';
         }, 500 );
     }
+
+    finalizar()
 }
 
 function virar(el) {
@@ -79,6 +81,24 @@ function virar(el) {
         segundaCarta = el
         verificarCartas()
     }
+}
+
+function finalizar() {
+
+    let allFlipped = true;
+
+    for (let i = 0; i < cards.length; i++) {
+        if (!cards[i].classList.contains('virada')) {
+          allFlipped = false;
+        }
+      }
+
+      if (allFlipped) {
+
+        setTimeout(() => {
+            alert('ganhou');
+        }, 500 );
+      }
 }
 
 jogoInvalido()
