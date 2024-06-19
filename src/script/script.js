@@ -35,7 +35,7 @@ function renderizarBaralho() {
     baralho.sort(comparador)
 
     for (let i = 0; i < numberCards; i++) {
-        document.querySelector(".tableCards").innerHTML += `<div class="card" onclick="virar(this)">
+        document.querySelector(".tableCards").innerHTML += `<div class="card ${[baralho[i]]}" id="" onclick="virar(this)">
                                                                 <div class="front"><img src="./src/img/front.png"></div>
                                                                 <div class="back"><img src="/src/img/${backgroundGifs[baralho[i]]}.gif"></div>
                                                             </div>`;
@@ -43,9 +43,42 @@ function renderizarBaralho() {
     cards = document.querySelectorAll('div.card');
 }
 
+let primeiraCarta = '';
+let segundaCarta = '';
+
+function verificarCartas() {
+    let className1 = primeiraCarta.className
+    let className2 = segundaCarta.className
+
+    if (className1 === className2) {
+
+        primeiraCarta.classList.add('virada')
+        segundaCarta.classList.add('virada')
+        
+        primeiraCarta = '';
+        segundaCarta = '';
+    
+    } else {
+
+        setTimeout(()=>{
+            primeiraCarta.classList.remove('virada')
+            segundaCarta.classList.remove('virada')
+
+            primeiraCarta = '';
+            segundaCarta = '';
+        }, 500 );
+    }
+}
+
 function virar(el) {
-    el.classList.add("selecionada")
-    el.classList.toggle("virarda")
+    if (primeiraCarta === '') {
+        el.classList.toggle("virada")
+        primeiraCarta = el
+    } else if (segundaCarta === '') {
+        el.classList.toggle("virada")
+        segundaCarta = el
+        verificarCartas()
+    }
 }
 
 jogoInvalido()
