@@ -44,51 +44,8 @@ function renderizarBaralho() {
 }
 
 function virar(el) {
+    el.classList.add("selecionada")
     el.classList.toggle("virarda")
 }
 
 jogoInvalido()
-
-
-
-// let playCards = [];
-// let cardsInGame = [];
-// const backgroundGifs = [
-//     'bobrossparrot',
-//     'explodyparrot',
-//     'fiestaparrot',
-//     'metalparrot',
-//     'revertitparrot',
-//     'tripletsparrot',
-//     'unicornparrot',
-// ];
-
-// function backgroundGifIndice() {
-//     const randomIndex = Math.floor(Math.random() * backgroundGifs.length);
-//     cardsInGame.push(randomIndex)
-//     nameGif = backgroundGifs[randomIndex];
-//     console.log(cardsInGame)
-//     return nameGif
-// }
-
-// function comparador() {
-//     return Math.random() - 0.5;
-// }
-
-// function start() {
-//     if (numberCards % 2 == 0 && numberCards >= 4 && numberCards <= 14) {
-//         numberCards = numberCards / 2
-//         for (let i = 0; i < numberCards; i++) {
-//             backgroundGifIndice()
-//             for (let i = 0; i < 2; i++) {
-//                 document.querySelector(".tableCards").innerHTML += `<div class="card new" onclick="turn(this)"><img src="/src/img/${nameGif}.gif"</div>`;
-//                 playCards.push(cards[i]);
-//             }
-           
-//         }
-        
-//     }
-//     playCards = playCards.sort(comparador);
-// }
-
-// start()
