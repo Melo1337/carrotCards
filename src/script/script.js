@@ -9,8 +9,12 @@ const backgroundGifs = [
     'tripletsparrot',
     'unicornparrot',
 ];
-
+let primeiraCarta = '';
+let segundaCarta = '';
+let jogadas = 0;
+let tempo = null;
 let baralho = [];
+let jogadasHTML = document.getElementsByClassName('contador')[0];
 
 function comparador() { 
 	return Math.random() - 0.5; 
@@ -28,6 +32,7 @@ function jogoInvalido() {
 }
 
 function renderizarBaralho() {
+    
     for (let i = 0; i < numberCards/2; i++) {
         baralho.push(i)
         baralho.push(i)
@@ -42,9 +47,6 @@ function renderizarBaralho() {
     }
     cards = document.querySelectorAll('div.card');
 }
-
-let primeiraCarta = '';
-let segundaCarta = '';
 
 function verificarCartas() {
     let className1 = primeiraCarta.className
@@ -80,6 +82,7 @@ function virar(el) {
         el.classList.toggle("virada")
         segundaCarta = el
         verificarCartas()
+        contador()
     }
 }
 
@@ -96,9 +99,14 @@ function finalizar() {
       if (allFlipped) {
 
         setTimeout(() => {
-            alert('ganhou');
+            prompt(`Voce terminou com ${jogadas} jogadas e ${tempo}, que jogar de novo?`);
         }, 500 );
       }
+}
+
+function contador() {
+    jogadasHTML.innerHTML++
+    jogadas++
 }
 
 jogoInvalido()
