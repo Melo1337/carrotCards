@@ -63,3 +63,21 @@ header > h1 {
 .virada {
   transform: rotateY(-180deg);
 }
+
+.marcadores {
+  background-color: #00000025;
+  padding: 18px;
+  border-radius: 0px 0px 10px 10px;
+  color: #75b79e;
+  font-family: Roboto;
+  font-weight: 800;
+}
+
+.relogio {
+  display: flex;
+
+}
+
+.jogadas {
+  display: flex;
+}
